@@ -1,0 +1,45 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Charts (3.2.1):
+    - Charts/Core (= 3.2.1)
+  - Charts/Core (3.2.1)
+  - IQKeyboardManagerSwift (6.5.6)
+  - KDCircularProgress (1.5.4)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - Charts (from `https://github.com/alekzuz/Charts.git`, branch `bar-gradient`)
+  - IQKeyboardManagerSwift
+  - KDCircularProgress
+  - SDWebImage
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - KDCircularProgress
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  Charts:
+    :branch: bar-gradient
+    :git: https://github.com/alekzuz/Charts.git
+
+CHECKOUT OPTIONS:
+  Charts:
+    :commit: a65a3e7e0207d32657996562a9cec370b9e7b850
+    :git: https://github.com/alekzuz/Charts.git
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Charts: 5d168be9c09f00333e0e99475fc02545143e42d3
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  KDCircularProgress: 98200c6b8e85d22bc04eb644721d3b1e12b0686b
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+
+PODFILE CHECKSUM: 9e3f441b610de8a4a25cb6d3e64a5d506a3b0f9f
+
+COCOAPODS: 1.10.1

@@ -1,0 +1,33 @@
+// MARK: - Common errors
+"INTERNETERROR" = "Seems like you are not connected to the internet, please check your network settings and try again";
+"SERVERERROR" = "Oops! something went wrong at our end, we are trying to fix it";
+"CAMERASUPPORT" = "Sorry your device's camera is not functional";
+"UNKNOWNERROR" = "An unknown error has occured, we are trying to fix it";
+"NORESULTSFOUND" = "No result found";
+"GIVEPERMISSIONFORCAMERAACCESS" = "Please give permission to access camera from settings";
+"URLDOESNOTEXIST" = "The URL you are trying to reach does not exists";
+"SUBSCRIPTIONERROR" = "You don't have active Subscription.";
+"PHOTOPERMISSIONALERT" = "Please give permission to access gallery from settings";
+"CAMERAPERMISSIONALERT" = "Please give permission to access camera from settings";
+"CAMERANEEDED" = "Camera access is required to make full use of this app";
+
+//MARK:- Project Titles
+"HOME" = "Home";
+
+//MARK:- Errors
+"USERNAMEALERT" = "Please enter username";
+"PASSWORDALERT" = "Please enter password";
+"EMAILALERT" = "Please enter email id";
+"INVALIDEMAIL" = "Please enter valid email id";
+"VALIDEMAILALERT" = "Please enter a valid email address";
+"PASSWORDALERT" = "Please enter password";
+"LOGOUTALERT" = "Are you sure you want to logout?";
+"INVALIDURL" = "Invalid url";
+"CONPASSALERT" = "Please re-enter password";
+"PASSMATCHALERT" = "Re-entered password does not match";
+"NICKNAMEALERT" = "Please enter your nickname";
+"HEIGHTALERT" = "Please enter your height";
+"WEIGHTALERT" = "Please enter your weight";
+"DOBALERT" = "Please enter your birthday";
+"GENDERALERT" = "Please enter gender";
+"STEPGOAL" = "Please enter step goal";
