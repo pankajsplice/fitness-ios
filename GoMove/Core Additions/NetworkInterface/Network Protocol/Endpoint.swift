@@ -16,7 +16,7 @@ protocol Endpoint {
 extension Endpoint {
     var base: String {
         guard let baseURL = Bundle.main.infoDictionary?["BaseURL"] as? String else {
-            return ""
+            return "https://gofit.keycorp.in/"
         }
         return baseURL
     }

@@ -84,6 +84,8 @@
 		14D9FA6126E35FE000354490 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D9FA3226E35FE000354490 /* UserDetails.swift */; };
 		14D9FA6226E35FE000354490 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D9FA3426E35FE000354490 /* LoginVC.swift */; };
 		14E8BC2926E4151B00EA1D95 /* StepsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E8BC2826E4151B00EA1D95 /* StepsDetailVC.swift */; };
+		1866826026F265B000FE0CF7 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1866825F26F265B000FE0CF7 /* ForgotPasswordVC.swift */; };
+		1866826426F273CA00FE0CF7 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1866826326F273CA00FE0CF7 /* ResetPasswordVC.swift */; };
 		1890130526EFB5E80038CBA5 /* libWearHealthFunction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1890130126EFB5E80038CBA5 /* libWearHealthFunction.a */; };
 		FF05B9E9E7210BBC9529270C /* Pods_GoMove.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F179FD5239D2851F74432C9 /* Pods_GoMove.framework */; };
 /* End PBXBuildFile section */
@@ -168,6 +170,8 @@
 		14D9FA3226E35FE000354490 /* UserDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		14D9FA3426E35FE000354490 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		14E8BC2826E4151B00EA1D95 /* StepsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsDetailVC.swift; sourceTree = "<group>"; };
+		1866825F26F265B000FE0CF7 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		1866826326F273CA00FE0CF7 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		189012FC26EFB5E80038CBA5 /* FitnessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FitnessInfo.h; sourceTree = "<group>"; };
 		189012FD26EFB5E80038CBA5 /* ActiveInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveInfo.h; sourceTree = "<group>"; };
 		189012FE26EFB5E80038CBA5 /* ZHAlarmClockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHAlarmClockModel.h; sourceTree = "<group>"; };
@@ -652,6 +656,8 @@
 		14D9FA2F26E35FE000354490 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				1866826126F2739D00FE0CF7 /* Reset */,
+				1866825D26F2657700FE0CF7 /* Forgot */,
 				14D9FA3026E35FE000354490 /* Login */,
 				1444667926E5F4BF0069D87F /* Registration */,
 				1444667D26E606000069D87F /* Profile */,
@@ -697,6 +703,38 @@
 			isa = PBXGroup;
 			children = (
 				14E8BC2826E4151B00EA1D95 /* StepsDetailVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1866825D26F2657700FE0CF7 /* Forgot */ = {
+			isa = PBXGroup;
+			children = (
+				1866825E26F2658900FE0CF7 /* ViewController */,
+			);
+			path = Forgot;
+			sourceTree = "<group>";
+		};
+		1866825E26F2658900FE0CF7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1866825F26F265B000FE0CF7 /* ForgotPasswordVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1866826126F2739D00FE0CF7 /* Reset */ = {
+			isa = PBXGroup;
+			children = (
+				1866826226F2739D00FE0CF7 /* ViewController */,
+			);
+			path = Reset;
+			sourceTree = "<group>";
+		};
+		1866826226F2739D00FE0CF7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1866826326F273CA00FE0CF7 /* ResetPasswordVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -883,6 +921,7 @@
 				14D9FA3926E35FE000354490 /* AppDelegate.swift in Sources */,
 				14D9FA5526E35FE000354490 /* Font.swift in Sources */,
 				1444667C26E5F4E30069D87F /* RegistrationVC.swift in Sources */,
+				1866826426F273CA00FE0CF7 /* ResetPasswordVC.swift in Sources */,
 				146E544F26E4E8B00039916C /* HeartRateCollectionCell.swift in Sources */,
 				14D9FA4F26E35FE000354490 /* DateUtils.swift in Sources */,
 				14D9FA4B26E35FE000354490 /* AlertMessages.swift in Sources */,
@@ -900,6 +939,7 @@
 				14D9FA4E26E35FE000354490 /* WindowExtension.swift in Sources */,
 				14D9FA4126E35FE000354490 /* Media.swift in Sources */,
 				14D9FA4326E35FE000354490 /* CustomNavigationView.swift in Sources */,
+				1866826026F265B000FE0CF7 /* ForgotPasswordVC.swift in Sources */,
 				14D9FA5C26E35FE000354490 /* Validator.swift in Sources */,
 				14D9FA5826E35FE000354490 /* CellsRegisteration.swift in Sources */,
 				146E545326E53ADA0039916C /* BloodPressureDetailVC.swift in Sources */,
@@ -1093,7 +1133,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qodeify.gomove;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "GoMove Dev PP";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Documents/GoMove/gomove/GoMove/Resources/Bridging_Header/GoMove-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Documents/GoFit Code/GoMove/Resources/Bridging_Header/GoMove-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1121,7 +1161,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qodeify.gomove;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "GoMove Dev PP";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Documents/GoMove/gomove/GoMove/Resources/Bridging_Header/GoMove-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Documents/GoFit Code/GoMove/Resources/Bridging_Header/GoMove-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -15,6 +15,8 @@ enum AlertMessages {
          dobAlert,
          genderAlert,
          emailAlert,
+         otpAlert,
+         profilePicAlert,
          invalidEmailAlert,
          logoutAlert,
          cameraNeeded,
@@ -29,6 +31,8 @@ enum AlertMessages {
         case .cameraSupport: return "CAMERASUPPORT".localized
         case .usernameAlert: return "USERNAMEALERT".localized
         case .emailAlert: return "EMAILALERT".localized
+        case .otpAlert: return "OTPALERT".localized
+        case .profilePicAlert : return "PROFILEPICALERT".localized
         case .invalidEmailAlert: return "INVALIDEMAIL".localized
         case .logoutAlert: return "LOGOUTALERT".localized
         case .cameraNeeded: return "CAMERANEEDED".localized

@@ -3,10 +3,10 @@
 import UIKit
 
 enum DateFormat: String {
-    case yearMonthDate = "yyyy-MM-dd"
+    case yearMonthDate = "YYYY-MM-dd"
     case monthDateYear = "MM/dd/yyyy"
     case monthNameYear = "MMMM, yyyy"
-    case dateMonthYear = "dd MMMM, yyyy"
+    case dateMonthYear = "dd MMM, yyyy"
     case systemDateFormat = "yyyy-MM-dd HH:mm:ss Z"
     case serverFormat = "yyyy-MM-dd HH:mm:ss"
     case delivery    = "yyyy-MM-dd hh:mm a"

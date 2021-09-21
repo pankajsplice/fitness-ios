@@ -6,9 +6,10 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import CoreBluetooth
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,ZHBlePeripheralDelegate {
 
     var window: UIWindow?
     var appNav: UINavigationController?
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         appConfigurations()
         navigateAsPerLoginStatus()
+        
         return true
     }
     

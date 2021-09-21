@@ -8,27 +8,7 @@ import UIKit
 import KDCircularProgress
 import Charts
 
-final class StepsDetailVC: BaseViewController,ZHBleSportDataSource,ZHBleMultiSportDelegate,ZHBlePeripheralDelegate,ZHBleHealthDataSource,ZHOtherDataSource,ZHThemeDelegate,ZHBleGPSSportDelegate,ZHBleFileTransferDelegate,ZHBleDeviceBindDelegate {
-    func setCalibrationHR() -> Int32 {
-        return 70;
-    }
-    
-    func setCalibrationSystolic() -> Int32 {
-        return 120;
-    }
-    
-    func setCalibrationDiastolic() -> Int32 {
-        return 70;
-    }
-    
-    func setUserHeight() -> CGFloat {
-        return 160.0
-    }
-    
-    func setUserWeight() -> CGFloat {
-        return 45.0;
-    }
-    
+final class StepsDetailVC: BaseViewController {
 
     //MARK:- IBOutlets
     @IBOutlet private weak var circularProgress: KDCircularProgress!
@@ -49,71 +29,64 @@ final class StepsDetailVC: BaseViewController,ZHBleSportDataSource,ZHBleMultiSpo
     @IBOutlet weak var barChartView: BarChartView!
     
     //MARK:- Variable Declarations
-    var todayStepsCount: Int    = 1800
-    var totalStepGoalCount: Int = 3000
+   // var todayStepsCount: Int    = 1800
+    var totalStepGoalCount: String = "15000"
+    
+    var stepsData = [Int]()
     
     let players = ["S", "M", "T", "W", "T", "F", "S"]
-    let goals = [6, 8, 26, 30, 8, 10, 15]
+    var goals = [6, 8, 26, 30, 8, 10, 15]
     
     //Dates
     var weekEndDate = Date()
     var weekStartDate = Date()
-    
-    var cmdTool: ZHSendCmdTool?
-    var blePeripheral: ZHBlePeripheral?
+
 
     //MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        stepsCalculation()
+        if(UserDefaults.standard.value(forKey: UserDefaultConstants.stepGoal.value) as? String == nil || UserDefaults.standard.value(forKey: UserDefaultConstants.stepGoal.value) as? String == "")
+        {
+            UserDefaults.standard.setValue("15000", forKey: UserDefaultConstants.stepGoal.value)
+        }
+        else
+        {
+            totalStepGoalCount =  UserDefaults.standard.value(forKey: UserDefaultConstants.stepGoal.value) as? String ?? ""
+        }
         
-        blePeripheral = ZHBlePeripheral.sharedUartManager()
-        cmdTool = ZHSendCmdTool.shareIntance()
-       
         
         setupBtnAction()
         let completeDate = setDatesForSevenDays(weekLastDate: Date().startOfDay)
         weekDatesLbl.text = "\(completeDate.0) - \(completeDate.1)"
-        calculateCircularProgress()
-        customizeChart(dataPoints: players, values: goals.map{ Double($0) })
-        
-        
+       
+       
+
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //blePeripheral?.delegate = self;
-        blePeripheral?.sportDataSource = self;
-//        blePeripheral?.healthDataSource = self;
-//        blePeripheral?.otherDataSource = self;
-//        blePeripheral?.multiSportDelegate = self;
-//        blePeripheral?.fileTransferDelegate = self;
-//        blePeripheral?.gpsSportDelegate = self;
-//        blePeripheral?.deviceBindDelegate = self;
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-            if ZHBlePeripheral.sharedUartManager().mConnected == true {
-                self.cmdTool?.synchronizeTime()
-            }
+       
+       
+    }
+    
+    func stepsCalculation()
+    {
+        if(stepsData.count > 0)
+        {
+        var sumSteps = 0
+        for obj in stepsData as! [Int]
+        {
+            sumSteps = sumSteps + obj
+        }
+        print(sumSteps)
+        self.todayStepCountLbl.text = String(format:"%d",sumSteps)
         }
     }
     
+    
     //MARK:- Helper methods
-    
-    func getSportForDate(_ sportDate: String!, andStepData sportData: [Any]!, andDistance distance: CGFloat, andKcal kcal: CGFloat) {
-        print(String(format: "----sportDate=%@----sportData=%@----distance=%.2f----sportData=%.0f", sportDate ?? "", sportData ?? [], distance, kcal))
-    }
-    
-//     func getSportForDate(_ sportDate: String?, andStepData sportData: [AnyHashable]?, andDistance distance: CGFloat, andKcal kcal: CGFloat) {
-//        print(String(format: "----sportDate=%@----sportData=%@----distance=%.2f----sportData=%.0f", sportDate ?? "", sportData ?? [], distance, kcal))
-////        if let value = sportData?.value(forKeyPath: "@sum.intValue") {
-////         //   lbSteps.text = "\(value)"
-////            print("\(value)")
-////        }
-//        print(String(format: "%.2f km", distance))
-//        print(String(format: "%.0f kcal", kcal))
-//    }
-//
-    
+        
     func customizeChart(dataPoints: [String], values: [Double]) {
       // TO-DO: customize the chart here
         var dataEntries: [BarChartDataEntry] = []
@@ -152,6 +125,12 @@ final class StepsDetailVC: BaseViewController,ZHBleSportDataSource,ZHBleMultiSpo
         barChartView.leftAxis.drawAxisLineEnabled = false
         barChartView.leftAxis.drawTopYLabelEntryEnabled = false
         barChartView.chartDescription.enabled = false
+        barChartView.leftAxis.axisMinimum = 0
+        barChartView.rightAxis.axisMinimum = 0
+        
+        barChartView.leftAxis.axisMaximum = totalStepGoalCount.toDouble() ?? 0.0
+        //barChartView.rightAxis.axisMaximum = 10000
+        
         barChartView.data = chartData
         barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
 
@@ -189,14 +168,17 @@ final class StepsDetailVC: BaseViewController,ZHBleSportDataSource,ZHBleMultiSpo
         weekStartDate = weekEndDate.add(component: .day, value: -6)
         let weekEndDateValue = DateUtils.getStringFromDateNew(date: weekEndDate)
         let weekStartDateValue = DateUtils.getStringFromDateNew(date: weekStartDate)
+        apiGetStepsWeeklyData(startDate:DateUtils.getStringFromDate(date: weekStartDate, toFormate: DateFormat.yearMonthDate.rawValue) , endDate: DateUtils.getStringFromDate(date: weekEndDate, toFormate: DateFormat.yearMonthDate.rawValue))
+        
         return (weekStartDateValue,weekEndDateValue)
+        
     }
     
     //Setup progress grediant
     private func calculateCircularProgress() {
-        let circularProgressAngle = ((todayStepsCount * 360) / totalStepGoalCount) //360 is the total angle of circular progress
+        let circularProgressAngle = (88 * 360) / 100 //360 is the total angle of circular progress
         circularProgress.angle = (circularProgressAngle > 360) ? 360 : Double(circularProgressAngle)
-        todayStepCountLbl.text = "\(todayStepsCount)"
+       // todayStepCountLbl.text = "\(todayStepsCount)"
         stepGoalBtnAction.setTitle("\(totalStepGoalCount)", for: .normal)
     }
     
@@ -206,9 +188,10 @@ final class StepsDetailVC: BaseViewController,ZHBleSportDataSource,ZHBleMultiSpo
         todayBtnAction.touchUp = { button in
             let minimumDate = Calendar.current.date(byAdding: .year, value: -10, to: Date())
             DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), datePickerMode: .date) { (selectedDate) in
-                let selectedDate = DateUtils.getStringFromDate(date: selectedDate ?? Date(), toFormate: DateFormat.dateMonthYear.rawValue)
+                let selectedDated = DateUtils.getStringFromDate(date: selectedDate ?? Date(), toFormate: DateFormat.dateMonthYear.rawValue)
                 let todayDate = DateUtils.getStringFromDate(date: Date(), toFormate: DateFormat.dateMonthYear.rawValue)
-                self.todayBtnAction.setTitle((selectedDate == todayDate) ? "Today" : selectedDate, for: .normal)
+                self.todayBtnAction.setTitle((selectedDated == todayDate) ? "Today" : selectedDated, for: .normal)
+                self.apiGetStepsData(dateString: DateUtils.getStringFromDate(date: selectedDate ?? Date(), toFormate: DateFormat.yearMonthDate.rawValue))
             }
                
         }
@@ -233,9 +216,10 @@ final class StepsDetailVC: BaseViewController,ZHBleSportDataSource,ZHBleMultiSpo
             if self.stepCountTxtField.text == "" {
                 self.uidelegate?.show(message: .stepGoal)
             } else {
-                self.totalStepGoalCount = (self.stepCountTxtField.text)?.toInt() ?? 0
-                self.calculateCircularProgress()
+                self.totalStepGoalCount = self.stepCountTxtField.text ?? ""
+                self.stepGoalBtnAction.setTitle("\(self.totalStepGoalCount)", for: .normal)
                 self.stepCountPopupViewOut()
+                self.apiSetStepGoal(stepGoal: self.totalStepGoalCount)
             }
         }
     }
@@ -256,5 +240,123 @@ public class ChartFormatter: NSObject, AxisValueFormatter {
     public func setValues(values: [String]) {
         self.workoutDuration = values
     }
+    
+}
+
+
+extension StepsDetailVC
+{
+    func apiGetStepsData(dateString : String)
+    {
+        self.requestAPI(endpoint: UserEndpoint.getMotionInfo(dateString , [:])) { response in
+            print(response)
+            if(response["error"] as? Bool == false)
+            {
+            if(response["status_code"] as? Int == 200)
+            {
+            let dict = response["data"] as? [String:Any]
+                print(String(format:"%d ",dict?["total_steps"] as? NSInteger ?? ""))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.todayStepCountLbl.text = String(format:"%d ",dict?["total_steps"] as? NSInteger ?? "")
+            self.calculateCircularProgress()
+            }
+            }
+            else{
+                self.uidelegate?.show(message: .custom(response["message"] as? String))
+            }
+            }
+            else{
+                self.uidelegate?.show(message: .custom(response["message"] as? String))
+            }
+        }
+    }
+    
+    func apiGetStepsWeeklyData(startDate: String , endDate : String)
+    {
+        self.requestAPI(endpoint: UserEndpoint.getWeeklyMotionInfo(startDate, endDate,  [:])) { response in
+            print(response)
+            if(response["error"] as? Bool == false)
+            {
+            if(response["status_code"] as? Int == 200)
+            {
+            let data = response["data"] as? [String:Any]
+
+            print(String(format: "%.2f", data?["avg_step"] as! Double))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.minStepCountLbl.text = String(format:"%d",data?["min_step"] as? NSInteger ?? "")
+            self.maxStepCountLbl.text = String(format:"%d",data?["max_step"] as? NSInteger ?? "")
+            self.avgStepCountLbl.text = String(format: "%.f", data?["avg_step"] as! Double)
+    
+                let days = data?["weekly"] as? [String: Any]
+                
+                for obj in days!
+                {
+                    print(obj)
+                    switch obj.key {
+                    case "Sunday":
+                        self.goals[0] = obj.value as! Int
+                        break
+                    case "Monday":
+                        self.goals[1] = obj.value as! Int
+                        break
+                    case "Tuesday":
+                        self.goals[2] = obj.value as! Int
+                        break
+                    case "Wednesday":
+                        self.goals[3] = obj.value as! Int
+                        break
+                    case "Thursday":
+                        self.goals[4] = obj.value as! Int
+                        break
+                    case "Friday":
+                        self.goals[5] = obj.value as! Int
+                        break
+                    case "Saturday":
+                        self.goals[6] = obj.value as! Int
+                        break
+                
+                    default:
+                        break
+                    }
+                }
+                
+               self.customizeChart(dataPoints: self.players, values: self.goals.map{ Double($0) })
+               self.calculateCircularProgress()
+            }
+            }
+            else{
+                self.uidelegate?.show(message: .custom(response["message"] as? String))
+            }
+            }
+            else{
+                self.uidelegate?.show(message: .custom(response["message"] as? String))
+            }
+        }
+    }
+    
+    func apiSetStepGoal(stepGoal: String)
+    {
+        self.requestAPI(endpoint: UserEndpoint.setStepGoal(["step_goal": self.stepCountTxtField.text ?? ""])) { response in
+            print(response)
+            if(response["error"] as? Bool == false)
+            {
+            if(response["status_code"] as? Int == 200)
+            {
+                UserDefaults.standard.setValue(stepGoal, forKey: UserDefaultConstants.stepGoal.value)
+             // Update Charts
+               self.customizeChart(dataPoints: self.players, values: self.goals.map{ Double($0) })
+               self.calculateCircularProgress()
+            }
+            
+            else{
+                self.uidelegate?.show(message: .custom(response["message"] as? String))
+            }
+            }
+            else{
+                self.uidelegate?.show(message: .custom(response["message"] as? String))
+            }
+        }
+    }
+    
     
 }

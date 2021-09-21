@@ -13,10 +13,14 @@ extension AppDelegate {
     }
     
     func navigateAsPerLoginStatus() {
-        if UserDefaultsManager.loginToken == nil {
-            AppDelegate.shared.navigate(to: .login)
-        } else {
+        
+        if(UserDefaults.standard.value(forKey: UserDefaultConstants.loginToken.value) as? String != "")
+        {
             AppDelegate.shared.navigate(to: .home)
+        }
+        else
+        {
+            AppDelegate.shared.navigate(to: .login)
         }
     }
     
@@ -29,7 +33,7 @@ extension AppDelegate {
             controller = LoginVC.instantiateFrom(storyboard: .onboarding)
             
         case .home:
-            //controller = HomeVC.instantiateFrom(storyboard: .home)
+            controller = DashboardVC.instantiateFrom(storyboard: .home)
         break
         }
         

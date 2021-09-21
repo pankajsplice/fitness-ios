@@ -3,6 +3,7 @@ PODS:
   - Charts (3.2.1):
     - Charts/Core (= 3.2.1)
   - Charts/Core (3.2.1)
+  - DropDown (2.3.13)
   - IQKeyboardManagerSwift (6.5.6)
   - KDCircularProgress (1.5.4)
   - SDWebImage (5.11.1):
@@ -12,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Charts (from `https://github.com/alekzuz/Charts.git`, branch `bar-gradient`)
+  - DropDown
   - IQKeyboardManagerSwift
   - KDCircularProgress
   - SDWebImage
@@ -19,6 +21,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DropDown
     - IQKeyboardManagerSwift
     - KDCircularProgress
     - SDWebImage
@@ -36,10 +39,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Charts: 5d168be9c09f00333e0e99475fc02545143e42d3
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   KDCircularProgress: 98200c6b8e85d22bc04eb644721d3b1e12b0686b
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 9e3f441b610de8a4a25cb6d3e64a5d506a3b0f9f
+PODFILE CHECKSUM: 69d21460980f09730a01b1bc0eca607d6756cb1a
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.0

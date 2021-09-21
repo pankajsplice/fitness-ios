@@ -77,7 +77,18 @@ final class DeviceListVC: UIViewController,ZHBlePeripheralDelegate {
             }
         }
     }
-    
+
+    func didConnect(_ peripheral: CBPeripheral!) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        UserDefaults.standard.setValue(peripheral.identifier.uuidString, forKey: UserDefaultConstants.watchIdentifer.value)
+        
+        let nextVC = DashboardVC.instantiateFrom(storyboard: .home)
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
+    func didFail(toConnect peripheral: CBPeripheral!) {
+        print("Fail")
+    }
 
 }
 
@@ -90,8 +101,10 @@ extension DeviceListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DeviceListCell.dequeReusably(for: tableView, at: indexPath)
-        let dict = foundPeripherals[indexPath.row]
-        cell.deviceNameLbl.text = "\((dict as AnyObject).name ?? "")"
+        let dict = foundPeripherals[indexPath.row] as? CBPeripheral
+        print(dict)
+        cell.deviceNameLbl.text = dict?.name
+        cell.deviceIdLbl.text = dict?.identifier.uuidString
         return cell
     }
     
@@ -111,14 +124,13 @@ extension DeviceListVC: UITableViewDelegate, UITableViewDataSource {
             ZHBlePeripheral.sharedUartManager().didDisconnect()
             ZHBlePeripheral.sharedUartManager().mPeripheral = self.peripheral
             ZHBlePeripheral.sharedUartManager().didConnect()
-
-            let nextVC = DashboardVC.instantiateFrom(storyboard: .home)
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            
         })
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
+    
     
 }

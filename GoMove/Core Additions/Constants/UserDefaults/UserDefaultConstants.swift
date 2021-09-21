@@ -1,7 +1,7 @@
 import Foundation
 
 enum UserDefaultConstants {
-    case loginToken, name, email, userId, userData
+    case loginToken, name, email, userId, userData, watchIdentifer, stepGoal
     
     var value: String {
         switch self {
@@ -10,6 +10,8 @@ enum UserDefaultConstants {
         case .email: return APIKeys.email.key
         case .userId: return "userId"
         case .userData: return "userData"
+        case .watchIdentifer: return "watchIdentifer"
+        case .stepGoal : return "stepGoal"
         }
     }
 }

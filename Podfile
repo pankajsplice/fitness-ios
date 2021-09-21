@@ -9,6 +9,7 @@ target 'GoMove' do
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire', '~> 5.2'
   pod 'SDWebImage'
+  pod 'DropDown'
   pod 'KDCircularProgress'
   pod 'Charts' , :git => 'https://github.com/alekzuz/Charts.git', :branch => 'bar-gradient'
 

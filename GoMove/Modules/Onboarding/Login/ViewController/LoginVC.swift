@@ -13,6 +13,7 @@ final class LoginVC: BaseViewController {
     @IBOutlet private weak var loginBtn: ActionButton!
     @IBOutlet private weak var guestLoginBtn: ActionButton!
     @IBOutlet private weak var signupBtn: ActionButton!
+    @IBOutlet private weak var forgotBtn: ActionButton!
     
     //MARK:- Variable Declarations
     
@@ -43,9 +44,40 @@ final class LoginVC: BaseViewController {
         loginBtn.touchUp = { button in
             self.view.endEditing(true)
             if self.validateFields() {
-                let nextVC = DeviceListVC.instantiateFrom(storyboard: .onboarding)
-                self.navigationController?.pushViewController(nextVC, animated: true)
+                
+                self.requestAPI(endpoint: UserEndpoint.login(["username":self.usernameTxtField.text ?? "","password":self.passwordTxtField.text ?? ""])) { response in
+                   
+                    DispatchQueue.main.async {
+                    if(response["error"] as? Bool == false)
+                    {
+                        if(response["status_code"] as? Int == 200)
+                        {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            UserDefaults.standard.setValue(response["token"] as? String ?? "", forKey: UserDefaultConstants.loginToken.value)
+                            let nextVC = DeviceListVC.instantiateFrom(storyboard: .onboarding)
+                            self.navigationController?.pushViewController(nextVC, animated: true)
+                            }
+                        }
+                        else
+                        {
+                        guard let data = response["data"] as? [String:Any],
+                              let result = response["result"] as? [String:Any] else {
+                            return
+                        }
+                        }
+                    }
+                    else
+                    {
+                        self.uidelegate?.show(message: .custom(response["message"] as? String))
+                    }
+                    }
+                }
+               
             }
+        }
+        forgotBtn.touchUp = { button in
+            let nextVC = ForgotPasswordVC.instantiateFrom(storyboard: .onboarding)
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
         
         guestLoginBtn.touchUp = { button in

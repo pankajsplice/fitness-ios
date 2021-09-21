@@ -56,7 +56,7 @@ extension BaseViewController: UIDelegate {
 
 //MARK:- API Calling
 extension BaseViewController {
-    func requistAPI(endpoint: UserEndpoint, completion: @escaping ([String: Any]) -> Void) {
+    func requestAPI(endpoint: UserEndpoint, completion: @escaping ([String: Any]) -> Void) {
         endpoint.request { [weak self] in
             switch $0 {
             case .success(let data):

@@ -2,7 +2,7 @@
 import UIKit
 
 enum Storyboard : String {
-    case launch, onboarding, home, profile
+    case launch, onboarding, home, profile, forgot
     
     var instance : UIStoryboard {
         return UIStoryboard(name: self == .launch ? "LaunchScreen" : rawValue.capitalized, bundle: Bundle.main)

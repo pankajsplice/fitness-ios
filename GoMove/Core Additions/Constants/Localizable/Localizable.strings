@@ -18,6 +18,8 @@
 "USERNAMEALERT" = "Please enter username";
 "PASSWORDALERT" = "Please enter password";
 "EMAILALERT" = "Please enter email id";
+"OTPALERT" = "Please enter otp";
+"PROFILEPICALERT" = "Please select Profile Picture";
 "INVALIDEMAIL" = "Please enter valid email id";
 "VALIDEMAILALERT" = "Please enter a valid email address";
 "PASSWORDALERT" = "Please enter password";

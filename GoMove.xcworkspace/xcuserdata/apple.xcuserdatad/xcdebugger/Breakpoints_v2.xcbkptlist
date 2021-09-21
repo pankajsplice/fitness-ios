@@ -7,128 +7,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9E2E4497-814E-49AC-9EA6-330EA66A347F"
+            uuid = "D115A05E-C6EA-4400-8A55-CA8F0F943088"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoMove/Modules/Home/Steps/ViewController/StepsDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "StepsDetailVC"
-            landmarkType = "3">
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "setupBtnAction()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D5AB731B-721A-49CA-A293-7E8B8E156C12"
+            uuid = "AD6FA934-079C-4915-869C-62A3C55E3746"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoMove/Modules/Home/Steps/ViewController/StepsDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "StepsDetailVC"
-            landmarkType = "3">
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "calculateCircularProgress()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EFF6BF9F-D086-4BA5-A6E3-EFE11EA75316"
+            uuid = "5B22D94D-8945-48B1-8450-DC7908038F95"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoMove/Modules/Home/Steps/ViewController/StepsDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "StepsDetailVC"
-            landmarkType = "3">
+            startingLineNumber = "324"
+            endingLineNumber = "324"
+            landmarkName = "apiGetStepsWeeklyData(startDate:endDate:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "725FE31E-661D-4235-BCEB-988AEFA95815"
+            uuid = "0762A215-6DB4-4C52-9448-CCB63BF03C4E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoMove/Modules/Home/Steps/ViewController/StepsDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "StepsDetailVC"
-            landmarkType = "3">
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "calculateCircularProgress()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8BE46320-A635-472B-9A43-7236BAA2DD0E"
+            uuid = "5C594984-0A87-4A22-A3CC-81DEE1405F13"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoMove/Modules/Home/Steps/ViewController/StepsDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "StepsDetailVC"
-            landmarkType = "3">
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "apiGetStepsData(dateString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A1881DFC-6C44-4A90-A60E-BDA3F41A1C97"
+            uuid = "F8306409-3416-41FC-8814-8310B0548CCA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoMove/Modules/Home/Steps/ViewController/StepsDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "StepsDetailVC"
-            landmarkType = "3">
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "apiGetStepsData(dateString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "23BF6070-F50D-4A32-9BA4-EC0B3BDC9C59"
+            uuid = "1110A37E-1A7F-4D7B-BB68-BA9311134840"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoMove/Modules/Home/Steps/ViewController/StepsDetailVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "StepsDetailVC"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "82AD5682-26DE-4A7E-BFCF-1D1779419B7D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GoMove/Modules/Home/Steps/ViewController/StepsDetailVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "getSportForDate(_:andStepData:andDistance:andKcal:)"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
+            landmarkName = "apiSetStepGoal(stepGoal:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
